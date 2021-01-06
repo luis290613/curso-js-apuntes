@@ -1,0 +1,20 @@
+{
+    "empleados": [{
+        "id": 1,
+        "nombre": "diego",
+        "apellido": "ruiz bautista"
+    }, {
+        "id": 2,
+        "nombre": "jose",
+        "apellido": "ruiz bautista"
+    }, {
+        "id": 3,
+        "nombre": "eulalia",
+        "apellido": "ruiz bautista"
+    }, {
+        "id": 4,
+        "nombre": "jose",
+        "apellido": "ruiz huertas"
+    }],
+    "estado": "vivito y coleando"
+}

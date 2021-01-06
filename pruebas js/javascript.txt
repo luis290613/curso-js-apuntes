@@ -359,5 +359,105 @@ boton.addEventListener('click', () => {
         })
 }); */
 
+/*-------------------------------------------****-------------------------------------- */
 
+//ASYNC AWAIT
+//para poder crear bloques asincronos (que se ejecutan en un hilo distinto practicamente)
+/* function desacargarNuevosClientes() {
+    return new Promise(resolve => {
+        console.log('descargando clientes...');
+        setTimeout(() => {
+            resolve('clientes descargados con exito');
+        }, 3000);
+    });
+}
+
+async function app() {
+    try {
+        const resultado = await desacargarNuevosClientes();
+        console.log(resultado);
+    } catch (error) {
+        console.log(error);
+    }
+}
+app();
+console.log('ultima linea') */
+
+
+/*-------------------------------------------****-------------------------------------- */
+
+//USANDO VARIOS ASYNC AWAIS A LA VEZ
+//creando un arreglo de promises al momento mandarlos a llamar para que se ejecuten de forma asincrona
+/* function desacargarNuevosClientes() {
+    return new Promise(resolve => {
+        console.log('descargando clientes...');
+        setTimeout(() => {
+            resolve('clientes descargados con exito');
+        }, 4000);
+    });
+}
+
+function desacargarNuevosPedidos() {
+    return new Promise(resolve => {
+        console.log('descargando pedidos...');
+        setTimeout(() => {
+            resolve('pedidos descargados con exito');
+        }, 3000);
+    });
+}
+
+async function app() {
+    try {
+        const resultado = await Promise.all([desacargarNuevosClientes(), desacargarNuevosPedidos()])
+        console.log(resultado[0]);
+        console.log(resultado[1]);
+    } catch (error) {
+        console.log(error);
+    }
+}
+app();
+console.log('ultima linea') */
+
+
+/*-------------------------------------------****-------------------------------------- */
+
+
+//fETCH API
+//para poder consumir servicios o hacer peticiones
+//1. creamos un json para simular la respuesta del servidor empleado.json
+
+//CON ASYNC AWAIT
+/* async function obtenerEmpleado() {
+    const archivo = 'empleado.json'; //url
+
+    const resultadoApi = await fetch(archivo); //async await
+    const datos = await resultadoApi.json();
+    //destructuring
+    const { empleados } = datos;
+    empleados.forEach(item => {
+        console.log(item.nombre)
+    });
+}
+obtenerEmpleado();
+
+//CON PROMESAS
+function obtenerEmpleado() {
+    const archivo = 'empleado.json'; //url
+
+    fetch(archivo) //PROMESAS
+        .then(resultado => {
+            return resultado.json();
+        })
+        .then(datos => {
+            //console.log(datos);
+            //destructuring
+            const { empleados } = datos;
+            empleados.forEach(empleado => {
+                console.log(empleado.nombre)
+            });
+        })
+}
+obtenerEmpleado(); */
+
+/*-------------------------------------------****-------------------------------------- */
 
