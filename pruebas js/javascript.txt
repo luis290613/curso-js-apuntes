@@ -1,0 +1,363 @@
+SINTAXIS BASICAS DE JAVASCRIPT
+
+VARIABLES:
+
+let nombreVariable = 'valorVariable'; 
+const nombreVariable = 'valorVariable';
+
+METODOS PARA STRING : 
+
+nombreVariable.length -> devuelve la cantidad de letras
+nombreVariable.includes('palabra a buscar') -> devuelve true o false
+existen muchos mas metodos 
+
+NUMEROS Y OEPRADORES : 
+
+NAT : NOT A NUMBER 
+variable1 * variable2 (suma, resta, multi,divi,"%"->residuo de una division)
+
+EL OBJETO MATH: 
+
+Funciones definidas para trabajar con numeros
+
+INCREMENTO DE UNO NE UNO :
+
+nombreVariable++;
+nombreVariable--
+
+INCREMENTO DE VARIOS NUMEROS:
+
+nombreVariable += 10
+nombreVariable -= 10
+
+CONCATENACION:
+
+Antigua:
+variable1 + variable2
+variable1 +' '+ variable2
+
+Nueva:template String
+`mi nombre es ${variable1} y tengo ${variableAños} años`
+
+BOLEANOS:
+let variable = true/false
+
+OBJETOS:
+crear:
+const nombreObjeto = {
+	nombreAtributo : valoratributo,
+	nombreAtributo1 : valoratributo,
+	nombreAtributo2 : valoratributo	
+}
+console.log(nombreObjeto.nombreAtributo)
+
+modificar:
+nombreObjeto.nuevoAtributo = nuevoValor;
+console.log(nombreObjeto.nuevoAtributo)
+
+eliminar: 
+delete nombreObjeto.nuevoAtributo
+console.log(nombreObjeto)
+
+destructuring : asiganar varlor de una propiedad(objeto) a una variable  
+
+const variable = objeto.atributo
+const {nombrepropiedad} = objeto
+const {nombrepropiedad1,nombrepropiedad2} = objeto
+
+console.log(nombrepropiedad)
+
+OBJECT MODEL
+
+para no poder poder hacer un crud al objeto -> object.frezze(objeto) 
+para solo poder modificar uno existente -> object.seal(objecto)
+para ver si el objeto esta usando frezze o seal ->objet.isFrozen(objeto),object.isSealed(objeto)
+
+
+UNIR 2 OBJETOS-> SPREAD OPERATOR : 
+IMPORTANTE: EL SPREAD OPERATOR TAMBIEN APLICA PARA ARREGLOS
+
+const objeto1 = {
+	propiedad1 : valor,
+	propiedad2 : valor
+}
+const objeto2 = {
+	propiedad1 : valor,
+	propiedad2 : valor
+}
+
+const nuevoObjeto = { ...objeto1, ...objeto2}
+console.log(nuevoObjeto)
+
+ARRAYS:
+const nombreArreglo = [1,2,3,4,5];
+
+console.log(nombreArreglo[posicionArreglo])
+console.log(nombreArreglo.length) -> cantidad de valores en arreglo
+
+RECORRIENDO UN ARREGLO: 
+
+nombreArreglo.forEach( function(numero){
+	console.log(numero)->imprime la cantidad de tu arreglo
+})
+
+AGREGAR AL ARREGLO:
+
+nombreArreglo.push(6,7,8);//AGREGA AL FINAL
+nombreArreglo.onshit(7,8,8);//AGREGA AL INICIO
+
+ELIMINAR AL ARREGLO:
+nombreArreglo.pop()//ELIMINA EL ULTIMO ELEMENTO
+nombreArreglo.shift()//ELIMINA EL PRIMER ELEMENTO
+nombreArreglo.splice("inicio","posicion en adelante")//elimina una posicion intermedia
+
+SPREAD OPERATOR : 
+para crear un nuevo arreglo
+
+const nuevoArray = [...nombreArreglo,7];si se quiere agregar datos al inicio solo se invierte las posciciones
+console.log(nuevoArray)://imprimer nuevo arreglo
+
+ARREGLO DE OBJETOS 
+const carrito = [
+	{nombre: 'monitor',precio: 400},
+	{nombre: 'monitor1',precio: 500},
+	{nombre: 'monitor2',precio: 600},
+	{nombre: 'monitor3',precio: 700},	
+];
+
+//FOREACH-> solo para arreglo
+carrito.forEach(function(producto){
+	console.log(producto);//imprime los arreglos
+});
+
+INCLUDE -> para poder buscar en un arreglo plato -> const nombreArreglo = [1,2,3];
+const resultado = nombreArreglo.include(1)
+console.log(resultado)// true/false
+
+SOME ->para buscar en objetos
+cosnt resultado = carrito.some(function(producto){
+	return producto.nombre === 'monitor';
+});
+console.log(resultado) //true/false
+
+REDUCE: sumar campos dentro de un arreglo
+const resultado = carrito.reduce(function(total, producto){
+	return total + producto.precio 
+},0);// 0 es la posicion del arreglo para empezar a sumar en adelante
+console.log(resultado);//devuelve la suma de los precios
+
+FILTER: filtrar por condicional
+
+const resultado = carrito.filter(function(producto){
+	return producto.precio > 400
+});
+console.log(resultado) //productos mayor a 400
+
+
+FUNCIONES : 
+IMPORTANTE: en js recorre 2 veces el archivo, la primer vez para la declaracion de funcioens variables etc y la 
+segunda para la ejecucion(llamado de funciones), por eso es el orden no afecta en declaracion de la funcion
+pero sin en expresion de la funcion.
+DECLARACION DE LA FUNCION : 
+function nombreArreglo(){
+	console.log("esto es un arreglo")
+};
+
+EXPRESION DE LA FUNCION:
+const nombreArreglo = function(){
+	console.log("expesion de la funcion a la cual si se le puede aplicar arrow functions")	
+};
+
+EXPRESION DE LA FUNCION CON ARROW FUNCTION : 
+const nombreArreglo = => console.log("expesion de la funcion a la cual si se le puede aplicar arrow functions");
+
+FUNCION CON PARAMETROS Y RETURN 
+function nombreFuncion(val1 = 0,val2 =0){ // -> es =0 es un valor pro defecto en caso no ingresen nada
+	return (`la suma de ${val1} + ${va2}es :...`);
+};
+let resultado = nombreFuncion(10,2);
+console.log(resultado) //la suma de 10 y 2 es : ...
+
+
+METODOS DE PROPIEDA: 
+son metodos dentro de objetos -> MAS CONOCIDOS COMO METODO
+
+const objetoNuevo = {
+	nombrePropiedad : valorPropiedad,
+	nombrePropiedad1 : valorPropiedad1,
+	nombreFuncion : function(id){
+		console.log(`reproduciremos la musica con el id numero ${id}`);
+	}
+};
+
+objetoNuevo.nombreFuncion(100);//reproduciremos la musica con el id numero 100
+
+
+
+
+SWITCH: lo usamos para reemplazar un if anidado
+
+let nombreVariable = 'tarjeta';
+switch(nombreVariable){
+	case 'tarjeta':
+		console.log('pago con tarjeta');
+	break;
+	case 'efectivo':
+		console.log('pago con efectivo');
+	break;
+	default:
+		console.log('no contamos con ese tipo de pago')
+	break;
+};
+
+
+FOR,WHILE,DO WHILE : 
+el for y el while son los mismo -> PRIMERO VALIDA Y LUEGO EJECUTA
+el do while -> PRIMERO EJECUTA UNA VEZ Y LUEGO VALIDA
+
+
+THIS : 
+se usar mayormente para llamar algun elemnto dentro de su mismmo blqoue (objetos,funciones,etc)
+IMPORTANTE: no se puede usar dentro de una arrow function por que hacer refencia al objeto global(WINDOWS)
+const nombreObjeto = {
+	nombrePropiedad : valorPropiedad,
+	nombreFuncion : function(){
+		console.log("imprimiendo el nombre de la propiedad : ${this.nombrePropiedad}")	
+	}
+};
+
+OBJECT CONTRUCTOR Y OBJECT LITERAL
+
+objeto literal : -> data dura
+const datosPersonales = {
+	nombre: 'diego'
+	apellidos: 'ruiz abutista'
+};
+
+objeto constructor : -> dinamico por que puedes crear muchas instancias 
+function datosPersonales1 (nombre,apellido){
+	this.nombre = nombre,
+	this.apellido = apellido
+};
+
+creando instancias del objeto constructor:
+const persona1 = new datospersonales1('jose','ruiz huertas');
+const persona2 = new datosPersonales1('eulalia','bautista vargas');
+
+console.log(persona1); // {nombre : jose, apellido : ruiz huertas}
+console.log(persona2); // {nombre : eulalia, apellido : bautista vargas}
+
+
+
+PROTOTYPE: nos permmite crear funcione suq esolo se utilizan en un objeto especifico
+
+OBJETO CONTRUCTOR 
+function Cliente(nombre, apellido) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+}
+/* function formatoObjeto(objeto) {
+    console.log(`mi nombre es ${objeto.nombre} y mi apellido : ${objeto.apellido}`)
+}
+formatoObjeto(persona1); */
+
+/* con prototype creamos funciones que solo se usaran en el objeto*/
+Cliente.prototype.formatoObjeto = function() {
+    return `mi nombre es ${this.nombre} y mi apellido : ${this.apellido}`;
+}
+
+const persona1 = new Cliente('diego', 'ruiz bautista');
+/* console.log(persona1); */
+
+console.log(persona1.formatoObjeto());
+
+
+// LA NUEVA FORMA DE DECLARAR OBJETOS Y METODOS POR MEDIO DE CLASES 
+
+class Producto {
+    constructor(nombre, precio) {
+            this.nombre = nombre;
+            this.precio = precio;
+        }
+        // CREAMOS METODOS 
+    formatearTexto() {
+        return `mi nombre es : ${this.nombre} y mi precio : ${this.precio}`;
+    }
+    retornarPrecio() {
+        return `el precio del producto es de : ${this.precio}`
+    }
+}
+//INSTANCIAMOS
+const persona1 = new Producto('diego', 400);
+console.log(persona1);
+console.log(persona1.formatearTexto());
+console.log(persona1.retornarPrecio())
+
+
+//HERENCIA
+class Productito extends Producto {
+    constructor(nombre, precio, isbn) {
+            //con el super heredamos desde la clase extendida
+            super(nombre, precio)
+            this.isbn = isbn;
+        }
+        //tambien podemos heredar metodos
+    formatearTexto() {
+        return `${super.formatearTexto()}, su isbn es : ${this.isbn}`;
+    }
+}
+const nuevoProductito = new Productito('el gallo mas gallo', 150, 9999000)
+console.log(nuevoProductito);
+console.log(nuevoProductito.formatearTexto())
+
+//TRY CATCH 
+//no permite que la app se caiga por algun error existente -> solo usar en escenarios importantes como conexion a bses de datos, consumos de apis, validacion de sesiones, ect
+const num1 = 10;
+const num3 = 30;
+console.log(num1);
+try {
+    console.log(num2);
+} catch (error) {
+    console.log(error)
+}
+console.log(num3)
+
+//PROMESAS
+/* const usuarioAutenticado = new Promise((resolve, reject) => { //resolve,reject no son necesarios por que vienen por defecto
+    const autenticado = false
+    if (autenticado) {
+        resolve('usuario autenticado'); //promise cumplido
+    } else {
+        reject('no se pudo iniciar sesion') // promise incumplido 
+    }
+});
+console.log(usuarioAutenticado)
+
+usuarioAutenticado
+    .then(resultado => console.log(resultado)) // lo de abajo es lo mismo solo que se aplico ARROW FUNCTION
+    .catch(function(error) {
+        console.log(error)
+    })
+
+//En las promesas existen 3 valores
+//Pending : no se ha cumplido pero tampoco se a rechazado
+//Fultilled : ya cumplio
+//Rejected : Se a rechazado o no secumplio */
+
+/* //NOTIFICACION API 
+const boton = document.querySelector('#boton');
+boton.addEventListener('click', () => {
+    Notification.requestPermission()
+        .then(resultado => {
+            //console.log(resultado)
+            if (resultado == 'granted') {
+                new Notification('esta es una notificacion de prueba', {
+                    icon: 'img/luis-diego.jpg',
+                    body: 'luis diego ruiz bautista'
+                })
+            }
+        })
+}); */
+
+
+
