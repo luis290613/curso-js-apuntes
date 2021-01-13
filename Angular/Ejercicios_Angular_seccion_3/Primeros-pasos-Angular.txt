@@ -1,0 +1,13 @@
+//PARA CREAR UN PROYECTO EN ANGULAR SE DEBE UBICAR EN LA CARPETA PRIMERO Y LUEGO EJECUTAR
+ng new nombre-proyecto
+
+//PARA LEVANTAR UN PROYECTO EN ANGULAR DE DEBE EJECUTAR 
+ng serve -o // el -o es para que se abra el navegador
+
+
+// PARA CREAR COMPONENTES POR MEDIO DE CONSOLA 
+ng g c components/footer 
+
+//ngIf y los ngFor
+ngIf -> se usa para condicionales
+ngFor -> se usa en arreglos 
